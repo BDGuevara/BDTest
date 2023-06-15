@@ -28,5 +28,44 @@ public class Usuario implements Serializable {
 	private String numerodocumento;
 	@Column(name = "escolaridad")
 	private String escolaridad;
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	public String getApellido() {
+		return apellido;
+	}
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
+	}
+	public String getTipodocumento() {
+		return tipodocumento;
+	}
+	public void setTipodocumento(String tipodocumento) {
+		this.tipodocumento = tipodocumento;
+	}
+	public String getNumerodocumento() {
+		return numerodocumento;
+	}
+	public void setNumerodocumento(String numerodocumento) {
+		this.numerodocumento = numerodocumento;
+	}
+	public String getEscolaridad() {
+		return escolaridad;
+	}
+	public void setEscolaridad(String escolaridad) {
+		this.escolaridad = escolaridad;
+	}
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 
 }
