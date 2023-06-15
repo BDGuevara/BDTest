@@ -1,0 +1,26 @@
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql:
+              BasicBinder: 'TRACE '
+spring:
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    password: Minerva2020
+    url: jdbc:mysql://dbtest.chfqco6v0mv9.us-east-2.rds.amazonaws.com:3306/dbtest
+    username: root
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+  application:
+    name: servicio-conjuntos2
+    
+server: 
+  port: 9090
+# Config de el servidor  
