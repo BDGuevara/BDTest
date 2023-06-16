@@ -8,4 +8,10 @@ public interface IUsuarioService {
 
 
 	  public List<Usuario> listar();
+	  
+	  public boolean Grabar(Usuario usuario);
+	  
+	  public boolean Actualizar(Usuario usuario);
+	  
+	  public void Eliminar(Long id);
 }

@@ -9,7 +9,7 @@ logging:
               BasicBinder: 'TRACE '
 spring:
   datasource:
-    driverClassName: com.mysql.jdbc.Driver
+    driverClassName: com.mysql.cj.jdbc.Driver
     password: Minerva2020
     url: jdbc:mysql://dbtest.chfqco6v0mv9.us-east-2.rds.amazonaws.com:3306/dbtest
     username: root
