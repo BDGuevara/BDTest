@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.dbtest.entity.Categoria;
-
+import com.dbtest.entity.Usuario;
 import com.dbtest.repository.ICategoriaRepository;
 
 @Service
@@ -20,9 +20,10 @@ public class CategoriaService implements ICategoriaService {
 		return lista;
 	}
 
+	
 	@Override
 	public boolean Grabar(Categoria categoria) {
-		// TODO Auto-generated method stub
+		_repository.save(categoria);
 		return false;
 	}
 

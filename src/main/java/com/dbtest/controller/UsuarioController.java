@@ -79,5 +79,15 @@ public class UsuarioController {
 			List<Producto> lista = _productoservice.listar();
 			return new ResponseEntity<List<Producto>>(lista, HttpStatus.OK);
 		}
-	
+		
+		@PostMapping(value="categorias",consumes={"application/json"})
+		public ResponseEntity<Void> grabarCategoria(@RequestBody Categoria categoria){
+			if (_categoriaservice.Grabar(categoria)) {
+				return new ResponseEntity<Void>(HttpStatus.OK);
+			}
+			
+			else {
+				return new ResponseEntity<Void>(HttpStatus.CONFLICT);
+			}
+}
 }

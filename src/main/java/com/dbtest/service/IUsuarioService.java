@@ -2,6 +2,7 @@ package com.dbtest.service;
 
 import java.util.List;
 
+import com.dbtest.entity.Categoria;
 import com.dbtest.entity.Usuario;
 
 public interface IUsuarioService {
