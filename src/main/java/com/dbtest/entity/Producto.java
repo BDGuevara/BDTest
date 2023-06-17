@@ -1,61 +1,71 @@
 package com.dbtest.entity;
 
-import jakarta.persistence.Column;
+import java.io.Serializable;
+
+import java.math.BigInteger;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.NamedQuery;
 import jakarta.persistence.Table;
-import lombok.Getter;
-import lombok.Setter;
 
-@Getter
-@Setter
+
+/**
+ * The persistent class for the productos database table.
+ * 
+ */
 @Entity
-@Table(name = "productos")
-public class Producto {
-	
+@Table(name="productos")
+@NamedQuery(name="Producto.findAll", query="SELECT p FROM Producto p")
+public class Producto implements Serializable {
+	private static final long serialVersionUID = 1L;
+
 	@Id
-	@GeneratedValue(strategy =  GenerationType.IDENTITY)
-	@Column(name = "id")
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long id;
-	@Column(name = "producto")
-	private String producto;
-	@Column(name = "precio")
+
 	private Long precio;
-	
+
+	private String producto;
+
+	//bi-directional many-to-one association to Categoria
 	@ManyToOne
-	@JoinColumn(name = "categoriaid",referencedColumnName = "id")
+	@JoinColumn(name="categoriaid")
 	private Categoria categoria;
 
+	public Producto() {
+	}
+
 	public long getId() {
-		return id;
+		return this.id;
 	}
 
 	public void setId(long id) {
 		this.id = id;
 	}
 
-	public String getProducto() {
-		return producto;
-	}
-
-	public void setProducto(String producto) {
-		this.producto = producto;
-	}
-
 	public Long getPrecio() {
-		return precio;
+		return this.precio;
 	}
 
 	public void setPrecio(Long precio) {
 		this.precio = precio;
 	}
 
+	public String getProducto() {
+		return this.producto;
+	}
+
+	public void setProducto(String producto) {
+		this.producto = producto;
+	}
+
 	public Categoria getCategoria() {
-		return categoria;
+		return this.categoria;
 	}
 
 	public void setCategoria(Categoria categoria) {

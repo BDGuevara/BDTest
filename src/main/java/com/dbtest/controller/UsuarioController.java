@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.dbtest.entity.Categoria;
+import com.dbtest.entity.Producto;
 import com.dbtest.entity.Usuario;
 import com.dbtest.service.ICategoriaService;
 import com.dbtest.service.IProductoService;
@@ -71,4 +72,12 @@ public class UsuarioController {
 		List<Categoria> lista = _categoriaservice.listar();
 		return new ResponseEntity<List<Categoria>>(lista, HttpStatus.OK);
 	}
+	
+	//metodos para el producto
+		@GetMapping(value="productos",produces={"application/json"})
+		ResponseEntity<List<Producto>> listarproducto(){
+			List<Producto> lista = _productoservice.listar();
+			return new ResponseEntity<List<Producto>>(lista, HttpStatus.OK);
+		}
+	
 }
