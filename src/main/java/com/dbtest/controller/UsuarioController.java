@@ -13,7 +13,10 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.dbtest.entity.Categoria;
 import com.dbtest.entity.Usuario;
+import com.dbtest.service.ICategoriaService;
+import com.dbtest.service.IProductoService;
 import com.dbtest.service.IUsuarioService;
 
 @RestController
@@ -21,7 +24,13 @@ public class UsuarioController {
 
 	@Autowired
 	IUsuarioService _service;
-		
+	 
+	@Autowired
+	ICategoriaService _categoriaservice;
+	
+	@Autowired
+	IProductoService _productoservice;
+	
 	@GetMapping(value="usuarios",produces={"application/json"})
 	ResponseEntity<List<Usuario>> listar(){
 		List<Usuario> lista = _service.listar();
@@ -54,5 +63,12 @@ public class UsuarioController {
 	public ResponseEntity<Void> eliminarUsuario(@PathVariable("id") Long id){
 		_service.Eliminar(id);
 		return new ResponseEntity<Void>(HttpStatus.OK);
+	}
+	
+	//metodos para la categoria
+	@GetMapping(value="categorias",produces={"application/json"})
+	ResponseEntity<List<Categoria>> listarcategoria(){
+		List<Categoria> lista = _categoriaservice.listar();
+		return new ResponseEntity<List<Categoria>>(lista, HttpStatus.OK);
 	}
 }
